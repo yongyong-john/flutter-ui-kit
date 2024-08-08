@@ -55,45 +55,78 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Colors.blueGrey,
-          child: Column(
-            children: [
-              Card(
-                child: ListTile(
-                  title: const Text('Material UI'),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const MaterialUiScreen(),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double totalHeight = constraints.maxHeight - 20.0; // 10.0 패딩 상단과 하단 합
+              double cardHeight = totalHeight / 3;
+              return Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        child: ListTile(
+                          title: Center(
+                            child: Text(
+                              'Material UI',
+                              style: TextStyle(fontSize: cardHeight / 7),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const MaterialUiScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    );
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text('Cupertino UI'),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const CupertinoUiScreen(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        child: ListTile(
+                          title: Center(
+                            child: Text(
+                              'Cupertino UI',
+                              style: TextStyle(fontSize: cardHeight / 7),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const CupertinoUiScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    );
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text('Added Package UI'),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const AddedPackageUiScreen(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        child: ListTile(
+                          title: Center(
+                            child: Text(
+                              'Added Package UI',
+                              style: TextStyle(fontSize: cardHeight / 7),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AddedPackageUiScreen(),
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    );
-                  },
+                    ),
+                  ],
                 ),
-              ),
-            ],
+              );
+            },
           ),
         ),
       ),

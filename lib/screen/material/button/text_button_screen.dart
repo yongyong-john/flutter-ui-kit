@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/description/material_description.dart';
-import 'package:flutter_ui_kit/screen/utils/message.dart';
+import 'package:flutter_ui_kit/utils/message.dart';
+import 'package:flutter_ui_kit/widget/selectable_button_widget.dart';
 
 class TextButtonScreen extends StatefulWidget {
   const TextButtonScreen({super.key});
@@ -10,6 +11,7 @@ class TextButtonScreen extends StatefulWidget {
 }
 
 class _TextButtonScreenState extends State<TextButtonScreen> {
+  bool selected = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +75,34 @@ class _TextButtonScreenState extends State<TextButtonScreen> {
                     Message.showMessage(context, 'FilledTonalButton pressed');
                   },
                   child: const Text('FilledTonalButton'),
+                ),
+                const SizedBox(height: 20),
+                SelectableButton(
+                  selected: selected,
+                  style: ButtonStyle(
+                    foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (Set<WidgetState> states) {
+                        if (states.contains(WidgetState.selected)) {
+                          return Colors.white;
+                        }
+                        return null; // defer to the defaults
+                      },
+                    ),
+                    backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+                      (Set<WidgetState> states) {
+                        if (states.contains(WidgetState.selected)) {
+                          return Colors.indigo;
+                        }
+                        return null; // defer to the defaults
+                      },
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      selected = !selected;
+                    });
+                  },
+                  child: const Text('toggle selected'),
                 ),
               ],
             ),

@@ -34,7 +34,32 @@ class _BadgeScreenState extends State<BadgeScreen> {
                 style: const TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
-              const Text('This is a UI created by adding a Positioned widget to FAB, rather than using the Badge package.'),
+              const Text(
+                  'This is a UI created by adding a Positioned widget to FAB, rather than using the Badge package.'),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Badge(
+                      child: Icon(Icons.book),
+                    ),
+                    onPressed: () {},
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  IconButton(
+                    icon: Badge(
+                      label: Text('$_badgeCount'),
+                      child: const Icon(Icons.star),
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
             ],
           ),
         ),

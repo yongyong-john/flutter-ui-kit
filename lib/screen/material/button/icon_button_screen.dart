@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kit/screen/utils/message.dart';
+import 'package:flutter_ui_kit/utils/message.dart';
 
 class IconButtonScreen extends StatefulWidget {
   const IconButtonScreen({super.key});
