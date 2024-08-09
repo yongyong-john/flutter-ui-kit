@@ -10,6 +10,7 @@ import 'package:flutter_ui_kit/screen/material/dialog_screen.dart';
 import 'package:flutter_ui_kit/screen/material/divider_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_tile_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_view_screen.dart';
+import 'package:flutter_ui_kit/screen/material/navigation_bar_screen.dart';
 import 'package:flutter_ui_kit/screen/material/navigation_rail_screen.dart';
 import 'package:flutter_ui_kit/screen/material/progress_screen.dart';
 import 'package:flutter_ui_kit/screen/material/side_sheet_screen.dart';
@@ -137,6 +138,16 @@ class MaterialUiScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ListTileScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Navigation Bar'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const NavigationBarScreen(),
                     ),
                   );
                 },
