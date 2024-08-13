@@ -19,6 +19,7 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
         centerTitle: true,
       ),
       bottomNavigationBar: NavigationBar(
+        indicatorColor: Colors.amber,
         labelBehavior: labelBehavior,
         selectedIndex: currentPageIndex,
         onDestinationSelected: (int index) {
@@ -32,12 +33,17 @@ class _NavigationBarScreenState extends State<NavigationBarScreen> {
             label: 'Explore',
           ),
           NavigationDestination(
-            icon: Icon(Icons.commute),
+            icon: Badge(
+              child: Icon(Icons.commute),
+            ),
             label: 'Commute',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.bookmark),
-            icon: Icon(Icons.bookmark_border),
+            icon: Badge(
+              label: Text('2'),
+              child: Icon(Icons.bookmark_border),
+            ),
             label: 'Saved',
           ),
         ],

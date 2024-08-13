@@ -16,7 +16,7 @@ class _TextButtonScreenState extends State<TextButtonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Text Button'),
+        title: const Text('Text Buttons'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(

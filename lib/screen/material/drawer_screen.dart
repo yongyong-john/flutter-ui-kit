@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SideSheetScreen extends StatelessWidget {
-  const SideSheetScreen({super.key});
+class DrawerScreen extends StatelessWidget {
+  const DrawerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

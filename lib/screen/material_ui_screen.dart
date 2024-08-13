@@ -4,19 +4,23 @@ import 'package:flutter_ui_kit/screen/material/badge_screen.dart';
 import 'package:flutter_ui_kit/screen/material/bottom_sheet_screen.dart';
 import 'package:flutter_ui_kit/screen/material/button/button_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/card_screen.dart';
+import 'package:flutter_ui_kit/screen/material/checkbox_screen.dart';
 import 'package:flutter_ui_kit/screen/material/clip_screen.dart';
 import 'package:flutter_ui_kit/screen/material/datetime_picker_screen.dart';
 import 'package:flutter_ui_kit/screen/material/dialog_screen.dart';
 import 'package:flutter_ui_kit/screen/material/divider_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_tile_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_view_screen.dart';
-import 'package:flutter_ui_kit/screen/material/navigation_bar_screen.dart';
-import 'package:flutter_ui_kit/screen/material/navigation_rail_screen.dart';
+import 'package:flutter_ui_kit/screen/material/menu/menu_group_screen.dart';
+import 'package:flutter_ui_kit/screen/material/navigation/navigation_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/progress_screen.dart';
-import 'package:flutter_ui_kit/screen/material/side_sheet_screen.dart';
+import 'package:flutter_ui_kit/screen/material/drawer_screen.dart';
+import 'package:flutter_ui_kit/screen/material/radio_screen.dart';
 import 'package:flutter_ui_kit/screen/material/slider_screen.dart';
+import 'package:flutter_ui_kit/screen/material/switch_screen.dart';
 import 'package:flutter_ui_kit/screen/material/text/text_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/toast_screen.dart';
+import 'package:flutter_ui_kit/screen/search_anchor_screen.dart';
 
 class MaterialUiScreen extends StatelessWidget {
   const MaterialUiScreen({super.key});
@@ -83,7 +87,17 @@ class MaterialUiScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Clip'),
+                title: const Text('Checkbox'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const CheckboxScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Clips'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -93,7 +107,7 @@ class MaterialUiScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Date Time Picker'),
+                title: const Text('Date & Time Picker'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
@@ -123,11 +137,11 @@ class MaterialUiScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('ListView'),
+                title: const Text('Drawer'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const ListViewScreen(),
+                      builder: (context) => const DrawerScreen(),
                     ),
                   );
                 },
@@ -143,31 +157,61 @@ class MaterialUiScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Navigation Bar'),
+                title: const Text('ListView'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const NavigationBarScreen(),
+                      builder: (context) => const ListViewScreen(),
                     ),
                   );
                 },
               ),
               ListTile(
-                title: const Text('Navigation Rail'),
+                title: const Text('Menu Group'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const NavigationRailScreen(),
+                      builder: (context) => const MenuGroupScreen(),
                     ),
                   );
                 },
               ),
               ListTile(
-                title: const Text('Side Sheet'),
+                title: const Text('Navigation Group'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const SideSheetScreen(),
+                      builder: (context) => const NavigationGroupScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Progress Indicators'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ProgressIndicatorScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Radio'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const RadioScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Search Anchor'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SearchAnchorScreen(),
                     ),
                   );
                 },
@@ -183,21 +227,21 @@ class MaterialUiScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Text Group'),
+                title: const Text('Switch'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const TextGroupScreen(),
+                      builder: (context) => const SwitchScreen(),
                     ),
                   );
                 },
               ),
               ListTile(
-                title: const Text('Progress'),
+                title: const Text('Text Group'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const ProgressScreen(),
+                      builder: (context) => const TextGroupScreen(),
                     ),
                   );
                 },

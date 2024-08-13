@@ -13,7 +13,7 @@ class _BasicAppBarScreenState extends State<BasicAppBarScreen> {
   final TextEditingController _controller = TextEditingController();
   final FocusNode _focusNodeAppBarTitle = FocusNode();
   final FocusNode _focusNodeToolBarHeight = FocusNode();
-  bool _centerTitle = false;
+  bool _centerTitle = true;
   bool _backLeading = false;
   double toolBarHeight = kToolbarHeight;
   Color _foregroundColor = Colors.black;
@@ -33,7 +33,7 @@ class _BasicAppBarScreenState extends State<BasicAppBarScreen> {
   @override
   void initState() {
     super.initState();
-    _controller.text = 'AppBar title';
+    _controller.text = 'AppBar';
   }
 
   @override

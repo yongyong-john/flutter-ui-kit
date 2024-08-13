@@ -29,6 +29,35 @@ class _BadgeScreenState extends State<BadgeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text(
+                'Basic badge',
+                style: TextStyle(fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    icon: const Badge(
+                      label: Text('Your label'),
+                      backgroundColor: Colors.blueAccent,
+                      child: Icon(Icons.receipt),
+                    ),
+                    onPressed: () {},
+                  ),
+                  const SizedBox(width: 40),
+                  IconButton(
+                    icon: Badge.count(
+                      count: 9999,
+                      child: const Icon(Icons.notifications),
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               Text(
                 'Press the button to increment the badge count $_badgeCount',
                 style: const TextStyle(fontSize: 20),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kit/utils/message.dart';
 
 class IconButtonScreen extends StatefulWidget {
   const IconButtonScreen({super.key});
@@ -59,62 +58,6 @@ class _IconButtonScreenState extends State<IconButtonScreen> {
             ],
           ),
           const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              FloatingActionButton(
-                onPressed: () {
-                  Message.showMessage(context, 'Mini FAB pressed');
-                },
-                mini: true,
-                heroTag: 'fab1',
-                child: const Icon(Icons.edit),
-              ),
-              FloatingActionButton(
-                onPressed: () {
-                  Message.showMessage(context, 'Colored FAB pressed');
-                },
-                backgroundColor: Colors.green,
-                heroTag: 'fab2',
-                child: const Icon(Icons.color_lens),
-              ),
-              FloatingActionButton(
-                onPressed: () {
-                  Message.showMessage(context, 'Icon FAB pressed');
-                },
-                foregroundColor: Colors.red,
-                heroTag: 'fab3',
-                child: const Icon(Icons.thumb_up),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          FloatingActionButton.extended(
-            onPressed: () {
-              Message.showMessage(context, 'Extended FAB 1 pressed');
-            },
-            label: const Text('Extended FAB 1'),
-            icon: const Icon(Icons.add),
-            heroTag: 'extendedFab1',
-          ),
-          const SizedBox(height: 16),
-          FloatingActionButton.extended(
-            onPressed: () {
-              Message.showMessage(context, 'Extended FAB 2 pressed');
-            },
-            label: const Text('Extended FAB 2'),
-            icon: const Icon(Icons.edit),
-            heroTag: 'extendedFab2',
-          ),
-          const SizedBox(height: 16),
-          FloatingActionButton.extended(
-            onPressed: () {
-              Message.showMessage(context, 'Extended FAB 3 pressed');
-            },
-            label: const Text('Extended FAB 3'),
-            icon: const Icon(Icons.navigation),
-            heroTag: 'extendedFab3',
-          ),
         ],
       ),
     );

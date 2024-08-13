@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kit/screen/material/button/button_screen.dart';
+import 'package:flutter_ui_kit/screen/material/button/floating_action_button_screen.dart';
 import 'package:flutter_ui_kit/screen/material/button/icon_button_screen.dart';
+import 'package:flutter_ui_kit/screen/material/button/segmented_button_screen.dart';
 import 'package:flutter_ui_kit/screen/material/button/text_button_example_screen.dart';
 import 'package:flutter_ui_kit/screen/material/button/text_button_screen.dart';
+import 'package:flutter_ui_kit/screen/material/button/toggle_button_screen.dart';
 
 class ButtonGroupScreen extends StatelessWidget {
   const ButtonGroupScreen({super.key});
@@ -11,7 +13,7 @@ class ButtonGroupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Appbar Group'),
+        title: const Text('Button Group'),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -19,11 +21,11 @@ class ButtonGroupScreen extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
-                title: const Text('Buttons'),
+                title: const Text('Floating Action Buttons'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const ButtonScreen(),
+                      builder: (context) => const FloatingActionButtonScreen(),
                     ),
                   );
                 },
@@ -34,6 +36,16 @@ class ButtonGroupScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const IconButtonScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Segmented Buttons'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const SegmentedButtonScreen(),
                     ),
                   );
                 },
@@ -54,6 +66,16 @@ class ButtonGroupScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const TextButtonExampleApp(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Toggle Buttons'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ToggleButtonScreen(),
                     ),
                   );
                 },
