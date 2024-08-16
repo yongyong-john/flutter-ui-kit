@@ -16,6 +16,7 @@ import 'package:flutter_ui_kit/screen/material/navigation/navigation_group_scree
 import 'package:flutter_ui_kit/screen/material/progress_screen.dart';
 import 'package:flutter_ui_kit/screen/material/drawer_screen.dart';
 import 'package:flutter_ui_kit/screen/material/radio_screen.dart';
+import 'package:flutter_ui_kit/screen/material/scrollbar_screen.dart';
 import 'package:flutter_ui_kit/screen/material/slider_screen.dart';
 import 'package:flutter_ui_kit/screen/material/switch_screen.dart';
 import 'package:flutter_ui_kit/screen/material/text/text_group_screen.dart';
@@ -202,6 +203,16 @@ class MaterialUiScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const RadioScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Scrollbar'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const ScrollbarScreen(),
                     ),
                   );
                 },

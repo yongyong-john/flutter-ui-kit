@@ -11,15 +11,8 @@ class _ButtonScreenState extends State<ButtonScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: const Text('Button'),
-        leading: CupertinoButton(
-          padding: EdgeInsets.zero,
-          child: const Icon(CupertinoIcons.back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
+      navigationBar: const CupertinoNavigationBar(
+        middle: Text('Button'),
       ),
       child: Center(
         child: Column(
@@ -44,6 +37,7 @@ class _ButtonScreenState extends State<ButtonScreen> {
               onPressed: () {},
               child: const Text('Enabled'),
             ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
