@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/screen/about_screen.dart';
 import 'package:flutter_ui_kit/screen/added_package_ui_screen.dart';
 import 'package:flutter_ui_kit/screen/cupertino_ui_screen.dart';
+import 'package:flutter_ui_kit/screen/layout_screen.dart';
 import 'package:flutter_ui_kit/screen/material_ui_screen.dart';
 import 'package:flutter_ui_kit/screen/settings_screen.dart';
 
@@ -97,6 +98,26 @@ class HomeScreen extends StatelessWidget {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => const CupertinoUiScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        child: ListTile(
+                          title: Center(
+                            child: Text(
+                              'Basic Layout UI',
+                              style: TextStyle(fontSize: cardHeight / 7),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const LayoutScreen(),
                               ),
                             );
                           },

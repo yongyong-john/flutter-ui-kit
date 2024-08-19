@@ -6,10 +6,18 @@ class AddedPackageUiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
-        child: Container(
-          color: Colors.grey,
+      appBar: AppBar(
+        title: const Text('Added Package UI'),
+        centerTitle: true,
+      ),
+      body: const SafeArea(
+        child: Center(
+          child: Text(
+            'Comming soon...',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+          ),
         ),
       ),
     );

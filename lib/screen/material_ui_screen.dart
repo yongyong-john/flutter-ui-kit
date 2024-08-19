@@ -10,7 +10,6 @@ import 'package:flutter_ui_kit/screen/material/datetime_picker_screen.dart';
 import 'package:flutter_ui_kit/screen/material/dialog_screen.dart';
 import 'package:flutter_ui_kit/screen/material/divider_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_tile_screen.dart';
-import 'package:flutter_ui_kit/screen/material/list_view_screen.dart';
 import 'package:flutter_ui_kit/screen/material/menu/menu_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/navigation/navigation_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/progress_screen.dart';
@@ -153,16 +152,6 @@ class MaterialUiScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ListTileScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('ListView'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ListViewScreen(),
                     ),
                   );
                 },
