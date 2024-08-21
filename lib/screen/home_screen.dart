@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/screen/about_screen.dart';
-import 'package:flutter_ui_kit/screen/added_package_ui_screen.dart';
+import 'package:flutter_ui_kit/screen/animation_screen.dart';
 import 'package:flutter_ui_kit/screen/cupertino_ui_screen.dart';
 import 'package:flutter_ui_kit/screen/layout_screen.dart';
 import 'package:flutter_ui_kit/screen/material_ui_screen.dart';
@@ -130,14 +130,14 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           title: Center(
                             child: Text(
-                              'Added Package UI',
+                              'Basic Animation UI',
                               style: TextStyle(fontSize: cardHeight / 7),
                             ),
                           ),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const AddedPackageUiScreen(),
+                                builder: (context) => const AnimationScreen(),
                               ),
                             );
                           },

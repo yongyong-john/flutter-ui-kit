@@ -66,8 +66,8 @@ class _CustomScrollViewScreenState extends State<CustomScrollViewScreen> {
             flexibleSpace: FlexibleSpaceBar(
               title: const Text('Custom Scroll View with Silver'),
               centerTitle: true,
-              background: Image.network(
-                "https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg",
+              background: Image.asset(
+                "assets/images/owl.png",
                 fit: BoxFit.cover,
               ),
             ),

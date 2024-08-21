@@ -23,8 +23,8 @@ class SilverAppBarScreen extends StatelessWidget {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              background: Image.network(
-                "https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg",
+              background: Image.asset(
+                "assets/images/owl.png",
                 fit: BoxFit.cover,
               ),
               collapseMode: CollapseMode.parallax,

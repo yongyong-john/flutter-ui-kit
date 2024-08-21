@@ -23,11 +23,11 @@ class LayoutScreen extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
-                title: const Text('List View'),
+                title: const Text('Custom Scroll View with Silver'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const ListViewScreen(),
+                      builder: (context) => const CustomScrollViewScreen(),
                     ),
                   );
                 },
@@ -43,21 +43,11 @@ class LayoutScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('PageView'),
+                title: const Text('List View'),
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const PageViewScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Custom Scroll View with Silver'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const CustomScrollViewScreen(),
+                      builder: (context) => const ListViewScreen(),
                     ),
                   );
                 },
@@ -68,6 +58,16 @@ class LayoutScreen extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (context) => const ListWheelScrollViewScreen(),
+                    ),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('PageView'),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const PageViewScreen(),
                     ),
                   );
                 },

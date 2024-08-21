@@ -39,8 +39,8 @@ class _SliverFixedExtentListScreenState extends State<SliverFixedExtentListScree
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               title: const Text('Sliver Fixed Extent List'),
-              background: Image.network(
-                'https://via.placeholder.com/800x400',
+              background: Image.asset(
+                "assets/images/owl.png",
                 fit: BoxFit.cover,
               ),
             ),
