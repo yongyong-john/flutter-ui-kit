@@ -3,6 +3,7 @@ import 'package:flutter_ui_kit/screen/animation/animated_group_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/hero_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/transition_group_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/tween_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class AnimationScreen extends StatelessWidget {
   const AnimationScreen({super.key});
@@ -14,50 +15,14 @@ class AnimationScreen extends StatelessWidget {
         title: const Text('Animation UI'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Animated Group'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedGroupScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Hero'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const HeroScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Transition Group'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const TransitionGroupScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Tween'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const TweenScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Animated Group', screen: AnimatedGroupScreen()),
+              ListTileWidget(title: 'Hero', screen: HeroScreen()),
+              ListTileWidget(title: 'Transition Group', screen: TransitionGroupScreen()),
+              ListTileWidget(title: 'Tween', screen: TweenScreen()),
             ],
           ),
         ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SlideTranistionScreen extends StatefulWidget {
-  const SlideTranistionScreen({super.key});
+class SlideTransitionScreen extends StatefulWidget {
+  const SlideTransitionScreen({super.key});
 
   @override
-  State<SlideTranistionScreen> createState() => _SlideTranistionScreenState();
+  State<SlideTransitionScreen> createState() => _SlideTransitionScreenState();
 }
 
-class _SlideTranistionScreenState extends State<SlideTranistionScreen> with SingleTickerProviderStateMixin {
+class _SlideTransitionScreenState extends State<SlideTransitionScreen> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animation;
 

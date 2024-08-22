@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/screen/material/menu/dropdown_menu_screen.dart';
 import 'package:flutter_ui_kit/screen/material/menu/menu_anchor_screen.dart';
 import 'package:flutter_ui_kit/screen/material/menu/menu_bar_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class MenuGroupScreen extends StatelessWidget {
   const MenuGroupScreen({super.key});
@@ -13,40 +14,13 @@ class MenuGroupScreen extends StatelessWidget {
         title: const Text('Menu Group'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Menu Anchor'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MenuAnchorScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Dropdown Menu'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const DropdownMenuScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('MenuBar'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MenuBarScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Menu Anchor', screen: MenuAnchorScreen()),
+              ListTileWidget(title: 'Dropdown Menu', screen: DropdownMenuScreen()),
+              ListTileWidget(title: 'MenuBar', screen: MenuBarScreen()),
             ],
           ),
         ),

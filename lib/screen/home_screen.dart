@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kit/screen/about_screen.dart';
 import 'package:flutter_ui_kit/screen/animation_screen.dart';
-import 'package:flutter_ui_kit/screen/cupertino_ui_screen.dart';
+import 'package:flutter_ui_kit/screen/cupertino_screen.dart';
 import 'package:flutter_ui_kit/screen/layout_screen.dart';
-import 'package:flutter_ui_kit/screen/material_ui_screen.dart';
-import 'package:flutter_ui_kit/screen/settings_screen.dart';
+import 'package:flutter_ui_kit/screen/material_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -38,16 +36,20 @@ class HomeScreen extends StatelessWidget {
               onTap: () {
                 // 설정 옵션 처리
                 Navigator.of(context).pop(); // 드로어 닫기
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
               },
             ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                // 정보 옵션 처리
                 Navigator.of(context).pop(); // 드로어 닫기
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
+                // 정보 옵션 처리
+                showAboutDialog(
+                  context: context,
+                  applicationName: 'About this app.',
+                  applicationVersion: '1.0.0',
+                );
+                // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
               },
             ),
           ],

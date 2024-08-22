@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/screen/material/text/text_field_screen.dart';
 import 'package:flutter_ui_kit/screen/material/text/text_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class TextGroupScreen extends StatelessWidget {
   const TextGroupScreen({super.key});
@@ -12,30 +13,12 @@ class TextGroupScreen extends StatelessWidget {
         title: const Text('Appbar Group'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Text'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const TextScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Text Field'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const TextFieldScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Text', screen: TextScreen()),
+              ListTileWidget(title: 'Text Field', screen: TextFieldScreen()),
             ],
           ),
         ),

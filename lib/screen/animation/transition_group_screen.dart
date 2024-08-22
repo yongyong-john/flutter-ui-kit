@@ -7,7 +7,8 @@ import 'package:flutter_ui_kit/screen/animation/transition/positioned_transition
 import 'package:flutter_ui_kit/screen/animation/transition/rotation_transition_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/transition/scale_transition_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/transition/size_transition_screen.dart';
-import 'package:flutter_ui_kit/screen/animation/transition/slide_tranistion_screen.dart';
+import 'package:flutter_ui_kit/screen/animation/transition/slide_transition_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class TransitionGroupScreen extends StatelessWidget {
   const TransitionGroupScreen({super.key});
@@ -19,100 +20,19 @@ class TransitionGroupScreen extends StatelessWidget {
         title: const Text('Transition Group'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Align Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AlignTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Decorated Box Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const DecoratedBoxTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Default Text Style Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const DefaultTextStyleTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Fade Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const FadeTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Positioned Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const PositionedTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Rotation Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const RotationTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Scale Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ScaleTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Size Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const SizeTransitionScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Slide Transition'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const SlideTranistionScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Align Transition', screen: AlignTransitionScreen()),
+              ListTileWidget(title: 'Decorated Box Transition', screen: DecoratedBoxTransitionScreen()),
+              ListTileWidget(title: 'Default Text Style Transition', screen: DefaultTextStyleTransitionScreen()),
+              ListTileWidget(title: 'Fade Transition', screen: FadeTransitionScreen()),
+              ListTileWidget(title: 'Positioned Transition', screen: PositionedTransitionScreen()),
+              ListTileWidget(title: 'Rotation Transition', screen: RotationTransitionScreen()),
+              ListTileWidget(title: 'Scale Transition', screen: ScaleTransitionScreen()),
+              ListTileWidget(title: 'Size Transition', screen: SizeTransitionScreen()),
+              ListTileWidget(title: 'Slide Transition', screen: SlideTransitionScreen()),
             ],
           ),
         ),

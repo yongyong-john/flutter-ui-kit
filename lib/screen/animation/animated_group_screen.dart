@@ -9,8 +9,9 @@ import 'package:flutter_ui_kit/screen/animation/animated/animated_modal_barrier_
 import 'package:flutter_ui_kit/screen/animation/animated/animated_opacity_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/animated/animated_padding_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/animated/animated_physical_model_screen.dart';
-import 'package:flutter_ui_kit/screen/animation/animated/animated_positiond_screen.dart';
+import 'package:flutter_ui_kit/screen/animation/animated/animated_positioned_screen.dart';
 import 'package:flutter_ui_kit/screen/animation/animated/animated_switcher_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class AnimatedGroupScreen extends StatelessWidget {
   const AnimatedGroupScreen({super.key});
@@ -22,130 +23,22 @@ class AnimatedGroupScreen extends StatelessWidget {
         title: const Text('Animatied Group'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Animated Align'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedAlignScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Container'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedContainerScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Cross Fade'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedCrossFadeScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Default Text Style'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedDefaultTextStyleScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Icon'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedIconScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated List'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedListScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Modal Barrier'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedModalBarrierScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Opacity'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedOpacityScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Padding'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedPaddingScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Physical Model'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedPhysicalModelScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Positioned'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedPositiondScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Animated Switcher'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const AnimatedSwitcherScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Animated Align', screen: AnimatedAlignScreen()),
+              ListTileWidget(title: 'Animated Container', screen: AnimatedContainerScreen()),
+              ListTileWidget(title: 'Animated Cross Fade', screen: AnimatedCrossFadeScreen()),
+              ListTileWidget(title: 'Animated Default Text Style', screen: AnimatedDefaultTextStyleScreen()),
+              ListTileWidget(title: 'Animated Icon', screen: AnimatedIconScreen()),
+              ListTileWidget(title: 'Animated List', screen: AnimatedListScreen()),
+              ListTileWidget(title: 'Animated Modal Barrier', screen: AnimatedModalBarrierScreen()),
+              ListTileWidget(title: 'Animated Opacity', screen: AnimatedOpacityScreen()),
+              ListTileWidget(title: 'Animated Padding', screen: AnimatedPaddingScreen()),
+              ListTileWidget(title: 'Animated Physical Model', screen: AnimatedPhysicalModelScreen()),
+              ListTileWidget(title: 'Animated Positioned', screen: AnimatedPositionedScreen()),
+              ListTileWidget(title: 'Animated Switcher', screen: AnimatedSwitcherScreen()),
             ],
           ),
         ),

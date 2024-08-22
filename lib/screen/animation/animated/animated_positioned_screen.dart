@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AnimatedPositiondScreen extends StatefulWidget {
-  const AnimatedPositiondScreen({super.key});
+class AnimatedPositionedScreen extends StatefulWidget {
+  const AnimatedPositionedScreen({super.key});
 
   @override
-  State<AnimatedPositiondScreen> createState() => _AnimatedPositiondScreenState();
+  State<AnimatedPositionedScreen> createState() => _AnimatedPositionedScreenState();
 }
 
-class _AnimatedPositiondScreenState extends State<AnimatedPositiondScreen> {
+class _AnimatedPositionedScreenState extends State<AnimatedPositionedScreen> {
   bool _isMoved = false;
 
   void _togglePosition() {

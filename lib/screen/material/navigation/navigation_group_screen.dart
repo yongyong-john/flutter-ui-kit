@@ -3,6 +3,7 @@ import 'package:flutter_ui_kit/screen/material/navigation/bottom_navigation_bar_
 import 'package:flutter_ui_kit/screen/material/navigation/navigation_bar_screen.dart';
 import 'package:flutter_ui_kit/screen/material/navigation/navigation_drawer_screen.dart';
 import 'package:flutter_ui_kit/screen/material/navigation/navigation_rail_screen.dart';
+import 'package:flutter_ui_kit/widget/list_tile_widget.dart';
 
 class NavigationGroupScreen extends StatelessWidget {
   const NavigationGroupScreen({super.key});
@@ -14,50 +15,14 @@ class NavigationGroupScreen extends StatelessWidget {
         title: const Text('Navigation Group'),
         centerTitle: true,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ListTile(
-                title: const Text('Bottom Navigation Bar'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const BottomNavigationBarScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Navigation Bar'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationBarScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Navigation Rail'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationRailScreen(),
-                    ),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Navigation Drawer'),
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const NavigationDrawerScreen(),
-                    ),
-                  );
-                },
-              ),
+              ListTileWidget(title: 'Bottom Navigation Bar', screen: BottomNavigationBarScreen()),
+              ListTileWidget(title: 'Navigation Bar', screen: NavigationBarScreen()),
+              ListTileWidget(title: 'Navigation Rail', screen: NavigationRailScreen()),
+              ListTileWidget(title: 'Navigation Drawer', screen: NavigationDrawerScreen()),
             ],
           ),
         ),
