@@ -74,23 +74,20 @@ class _SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: const Text('Second page'),
-          leading: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: const Icon(CupertinoIcons.back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Second page'),
+        leading: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        child: CupertinoPageScaffold(
-          child: Center(
-            child: Text(text),
-          ),
+      ),
+      child: CupertinoPageScaffold(
+        child: Center(
+          child: Text(text),
         ),
       ),
     );

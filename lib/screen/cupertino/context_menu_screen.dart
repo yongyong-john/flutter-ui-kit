@@ -36,82 +36,79 @@ class _ContextMenuScreenState extends State<ContextMenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: const Text('Cupertino Context Menu'),
-          leading: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: const Icon(CupertinoIcons.back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Cupertino Context Menu'),
+        leading: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Please press the logo for 2 seconds'),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                width: 100,
-                height: 100,
-                child: CupertinoContextMenu.builder(
-                  actions: <Widget>[
-                    CupertinoContextMenuAction(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      isDefaultAction: true,
-                      trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
-                      child: const Text('Copy'),
-                    ),
-                    CupertinoContextMenuAction(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      trailingIcon: CupertinoIcons.share,
-                      child: const Text('Share'),
-                    ),
-                    CupertinoContextMenuAction(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      trailingIcon: CupertinoIcons.heart,
-                      child: const Text('Favorite'),
-                    ),
-                    CupertinoContextMenuAction(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      isDestructiveAction: true,
-                      trailingIcon: CupertinoIcons.delete,
-                      child: const Text('Delete'),
-                    ),
-                  ],
-                  builder: (BuildContext context, Animation<double> animation) {
-                    final Animation<Decoration> boxDecorationAnimation = _boxDecorationAnimation(animation);
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Please press the logo for 2 seconds'),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 100,
+              height: 100,
+              child: CupertinoContextMenu.builder(
+                actions: <Widget>[
+                  CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    isDefaultAction: true,
+                    trailingIcon: CupertinoIcons.doc_on_clipboard_fill,
+                    child: const Text('Copy'),
+                  ),
+                  CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    trailingIcon: CupertinoIcons.share,
+                    child: const Text('Share'),
+                  ),
+                  CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    trailingIcon: CupertinoIcons.heart,
+                    child: const Text('Favorite'),
+                  ),
+                  CupertinoContextMenuAction(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    isDestructiveAction: true,
+                    trailingIcon: CupertinoIcons.delete,
+                    child: const Text('Delete'),
+                  ),
+                ],
+                builder: (BuildContext context, Animation<double> animation) {
+                  final Animation<Decoration> boxDecorationAnimation = _boxDecorationAnimation(animation);
 
-                    return Container(
-                      decoration:
-                          animation.value < CupertinoContextMenu.animationOpensAt ? boxDecorationAnimation.value : null,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: CupertinoColors.systemYellow,
-                          borderRadius: BorderRadius.circular(20.0),
-                        ),
-                        child: const FlutterLogo(size: 500.0),
+                  return Container(
+                    decoration:
+                        animation.value < CupertinoContextMenu.animationOpensAt ? boxDecorationAnimation.value : null,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: CupertinoColors.systemYellow,
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
-                    );
-                  },
-                ),
+                      child: const FlutterLogo(size: 500.0),
+                    ),
+                  );
+                },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

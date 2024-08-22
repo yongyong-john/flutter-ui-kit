@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_ui_kit/screen/cupertino/action_sheet_screen.dart';
 import 'package:flutter_ui_kit/screen/cupertino/activity_indicator_screen.dart';
 import 'package:flutter_ui_kit/screen/cupertino/alert_dialog_screen.dart';
@@ -20,13 +21,15 @@ import 'package:flutter_ui_kit/screen/cupertino/text_field_screen.dart';
 import 'package:flutter_ui_kit/widget/cupertino_list_tile_widget.dart';
 
 class CupertinoUiScreen extends StatelessWidget {
-  const CupertinoUiScreen({super.key});
+  final ThemeMode themeMode;
+
+  const CupertinoUiScreen({super.key, required this.themeMode});
 
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
-      theme: const CupertinoThemeData(
-        brightness: Brightness.light,
+      theme: CupertinoThemeData(
+        brightness: themeMode == ThemeMode.dark ? Brightness.dark : Brightness.light,
       ),
       home: CupertinoPageScaffold(
         navigationBar: CupertinoNavigationBar(

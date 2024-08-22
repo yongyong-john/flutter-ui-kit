@@ -5,7 +5,10 @@ import 'package:flutter_ui_kit/screen/layout_screen.dart';
 import 'package:flutter_ui_kit/screen/material_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final VoidCallback toggleTheme;
+  final ThemeMode themeMode;
+
+  const HomeScreen({super.key, required this.toggleTheme, required this.themeMode});
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,10 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              leading: Icon(themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
+              title: Text(themeMode == ThemeMode.dark ? 'Dark Mode' : 'Light Mode'),
               onTap: () {
-                // 설정 옵션 처리
-                Navigator.of(context).pop(); // 드로어 닫기
+                toggleTheme();
               },
             ),
             ListTile(
@@ -99,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const CupertinoUiScreen(),
+                                builder: (context) => CupertinoUiScreen(themeMode: themeMode),
                               ),
                             );
                           },

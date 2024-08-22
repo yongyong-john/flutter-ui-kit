@@ -63,41 +63,38 @@ class _PopupSurfaceScreenState extends State<PopupSurfaceScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: const Text('Cupertino Popup Surface'),
-          leading: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: const Icon(CupertinoIcons.back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Cupertino Popup Surface'),
+        leading: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  const Text('Paint surface'),
-                  const SizedBox(width: 16.0),
-                  CupertinoSwitch(
-                    value: _shouldPaintSurface,
-                    onChanged: (bool value) => setState(() => _shouldPaintSurface = value),
-                  ),
-                ],
-              ),
-              CupertinoButton(
-                onPressed: () => _showPopupSurface(context),
-                child: const Text('Show popup'),
-              ),
-            ],
-          ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                const Text('Paint surface'),
+                const SizedBox(width: 16.0),
+                CupertinoSwitch(
+                  value: _shouldPaintSurface,
+                  onChanged: (bool value) => setState(() => _shouldPaintSurface = value),
+                ),
+              ],
+            ),
+            CupertinoButton(
+              onPressed: () => _showPopupSurface(context),
+              child: const Text('Show popup'),
+            ),
+          ],
         ),
       ),
     );
