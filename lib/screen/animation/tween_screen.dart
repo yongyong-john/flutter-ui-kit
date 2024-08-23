@@ -19,7 +19,7 @@ class _TweenScreenState extends State<TweenScreen> with SingleTickerProviderStat
       vsync: this,
     );
 
-    _animation = Tween<double>(begin: 50.0, end: 500.0).animate(_controller)
+    _animation = Tween<double>(begin: 50.0, end: 300.0).animate(_controller)
       ..addListener(() {
         setState(() {});
       });
