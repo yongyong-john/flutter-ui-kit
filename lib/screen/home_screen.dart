@@ -40,6 +40,11 @@ class HomeScreen extends StatelessWidget {
                 toggleTheme();
               },
             ),
+            const AboutListTile(
+              icon: Icon(Icons.info),
+              applicationIcon: FlutterLogo(),
+              applicationVersion: '1.0.0',
+            ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
@@ -47,10 +52,22 @@ class HomeScreen extends StatelessWidget {
                 Navigator.of(context).pop(); // 드로어 닫기
                 // 정보 옵션 처리
                 showAboutDialog(
-                  context: context,
-                  applicationName: 'About this app.',
-                  applicationVersion: '1.0.0',
-                );
+                    context: context,
+                    applicationName: 'About this app.',
+                    // NOTE: Update the version.
+                    applicationVersion: '1.0.0',
+                    children: [
+                      const SizedBox(height: 10.0),
+                      const Text(
+                        'This is Flutter UI Kit, a sample application showcasing various UI components.',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 10.0),
+                      const Text(
+                        'Built with the following libraries:',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ]);
                 // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
               },
             ),

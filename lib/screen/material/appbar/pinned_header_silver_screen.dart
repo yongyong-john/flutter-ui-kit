@@ -55,6 +55,7 @@ class _PinnedHeaderSilverScreenState extends State<PinnedHeaderSilverScreen> {
     );
 
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_kit/screen/material/absorb_pointer_screen.dart';
 import 'package:flutter_ui_kit/screen/material/appbar/appbar_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/badge_screen.dart';
 import 'package:flutter_ui_kit/screen/material/bottom_sheet_screen.dart';
@@ -8,7 +9,9 @@ import 'package:flutter_ui_kit/screen/material/checkbox_screen.dart';
 import 'package:flutter_ui_kit/screen/material/clip_screen.dart';
 import 'package:flutter_ui_kit/screen/material/datetime_picker_screen.dart';
 import 'package:flutter_ui_kit/screen/material/dialog_screen.dart';
+import 'package:flutter_ui_kit/screen/material/display_feature_sub_screen.dart';
 import 'package:flutter_ui_kit/screen/material/divider_screen.dart';
+import 'package:flutter_ui_kit/screen/material/expansion_tile_screen.dart';
 import 'package:flutter_ui_kit/screen/material/list_tile_screen.dart';
 import 'package:flutter_ui_kit/screen/material/menu/menu_group_screen.dart';
 import 'package:flutter_ui_kit/screen/material/navigation/navigation_group_screen.dart';
@@ -37,6 +40,7 @@ class MaterialUiScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              ListTileWidget(title: 'Absorb Pointer', screen: AbsorbPointerScreen()),
               ListTileWidget(title: 'AppBar Group', screen: AppbarGroupScreen()),
               ListTileWidget(title: 'Badge', screen: BadgeScreen()),
               ListTileWidget(title: 'Bottom Sheet', screen: BottomSheetScreen()),
@@ -46,8 +50,10 @@ class MaterialUiScreen extends StatelessWidget {
               ListTileWidget(title: 'Clips', screen: ClipScreen()),
               ListTileWidget(title: 'Date & Time Picker', screen: DateTimePickerScreen()),
               ListTileWidget(title: 'Dialog', screen: DialogScreen()),
+              ListTileWidget(title: 'Display Feature Sub Screen', screen: DisplayFeatureSubScreenScreen()),
               ListTileWidget(title: 'Divider', screen: DividerScreen()),
               ListTileWidget(title: 'Drawer', screen: DrawerScreen()),
+              ListTileWidget(title: 'ExpansionTile', screen: ExpansionTileScreen()),
               ListTileWidget(title: 'ListTile', screen: ListTileScreen()),
               ListTileWidget(title: 'Menu Group', screen: MenuGroupScreen()),
               ListTileWidget(title: 'Navigation Group', screen: NavigationGroupScreen()),

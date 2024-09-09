@@ -16,7 +16,7 @@ class _BasicAppBarScreenState extends State<BasicAppBarScreen> {
   bool _centerTitle = true;
   bool _backLeading = false;
   double toolBarHeight = kToolbarHeight;
-  Color _foregroundColor = Colors.black;
+  Color? _foregroundColor;
   Color? _backgroundColor;
   final List<Color> _colors = [
     Colors.white,
@@ -34,6 +34,12 @@ class _BasicAppBarScreenState extends State<BasicAppBarScreen> {
   void initState() {
     super.initState();
     _controller.text = 'AppBar';
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _foregroundColor = MediaQuery.of(context).platformBrightness == Brightness.light ? Colors.black : Colors.white;
   }
 
   @override

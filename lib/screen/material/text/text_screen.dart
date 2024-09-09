@@ -36,7 +36,7 @@ class _TextScreenState extends State<TextScreen> {
   @override
   void initState() {
     super.initState();
-    _fontSizeController.text = _fontSize.toString();
+    _fontSizeController.text = _fontSize.toString().split('.')[0];
   }
 
   @override
@@ -70,6 +70,7 @@ class _TextScreenState extends State<TextScreen> {
           child: Column(
             children: [
               Container(
+                height: MediaQuery.of(context).size.height / 2,
                 decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.black,
@@ -78,13 +79,15 @@ class _TextScreenState extends State<TextScreen> {
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    textDescription,
-                    style: TextStyle(
-                      fontSize: _fontSize,
-                      fontWeight: _fontWeight,
-                      fontStyle: _fontStyle,
-                      decoration: _textDecoration,
+                  child: SingleChildScrollView(
+                    child: Text(
+                      textDescription,
+                      style: TextStyle(
+                        fontSize: _fontSize,
+                        fontWeight: _fontWeight,
+                        fontStyle: _fontStyle,
+                        decoration: _textDecoration,
+                      ),
                     ),
                   ),
                 ),
