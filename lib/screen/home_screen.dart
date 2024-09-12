@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       const SizedBox(height: 10.0),
                       const Text(
-                        'This is Flutter UI Kit, a sample application showcasing various UI components.',
+                        'Flutter UI Kit is a sample application that demonstrates various UI components. It is implemented only with Flutter SDK without any external libraries.',
                         style: TextStyle(fontSize: 16),
                       ),
                       const SizedBox(height: 10.0),
@@ -131,7 +131,7 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           title: Center(
                             child: Text(
-                              'Basic Layout UI',
+                              'Layout UI',
                               style: TextStyle(fontSize: cardHeight / 7),
                             ),
                           ),
@@ -151,7 +151,7 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           title: Center(
                             child: Text(
-                              'Basic Animation UI',
+                              'Animation UI',
                               style: TextStyle(fontSize: cardHeight / 7),
                             ),
                           ),

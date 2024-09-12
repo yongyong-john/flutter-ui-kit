@@ -12,33 +12,16 @@ class HeroScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: Column(
-            children: [
-              const Hero(
-                tag: 'hero-text',
-                child: Text(
-                  'Hero Text page1',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+          child: Hero(
+            tag: 'hero-color',
+            child: Container(
+              width: 100,
+              height: 100,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.blue,
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Hero(
-                tag: 'hero-color',
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
@@ -67,34 +50,16 @@ class SecondHeroPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Hero(
-                tag: 'hero-text',
-                child: Text(
-                  'Hero Text page2',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+          child: Hero(
+            tag: 'hero-color',
+            child: Container(
+              width: 300,
+              height: 300,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.blue,
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Hero(
-                tag: 'hero-color',
-                child: Container(
-                  width: 300,
-                  height: 300,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
