@@ -40,11 +40,6 @@ class HomeScreen extends StatelessWidget {
                 toggleTheme();
               },
             ),
-            const AboutListTile(
-              icon: Icon(Icons.info),
-              applicationIcon: FlutterLogo(),
-              applicationVersion: '1.0.0',
-            ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),

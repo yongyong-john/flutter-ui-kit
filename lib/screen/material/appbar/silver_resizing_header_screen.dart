@@ -26,7 +26,10 @@ class _SilverResizingHeaderScreenState extends State<SilverResizingHeaderScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Silver Resizing Header'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(4),

@@ -55,7 +55,10 @@ class _PinnedHeaderSilverScreenState extends State<PinnedHeaderSilverScreen> {
     );
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Pinned Header Silver'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 4),
@@ -76,7 +79,7 @@ class _PinnedHeaderSilverScreenState extends State<PinnedHeaderSilverScreen> {
             count += 1;
           });
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.check),
       ),
     );
   }

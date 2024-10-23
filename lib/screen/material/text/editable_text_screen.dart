@@ -33,13 +33,22 @@ class _EditableTextScreenState extends State<EditableTextScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            EditableText(
-              controller: _controller,
-              focusNode: _focusNode,
-              style: const TextStyle(color: Colors.black, fontSize: 18.0),
-              cursorColor: Colors.blue,
-              backgroundCursorColor: Colors.grey,
-              keyboardType: TextInputType.text,
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.blue, width: 2.0),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: EditableText(
+                  controller: _controller,
+                  focusNode: _focusNode,
+                  style: const TextStyle(color: Colors.black, fontSize: 18.0),
+                  cursorColor: Colors.blue,
+                  backgroundCursorColor: Colors.grey,
+                  keyboardType: TextInputType.text,
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             Text(

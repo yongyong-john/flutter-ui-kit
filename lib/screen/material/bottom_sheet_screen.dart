@@ -63,7 +63,6 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
       (BuildContext context) {
         return Container(
           height: 200,
-          color: Colors.white,
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: <Widget>[
@@ -103,17 +102,14 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
           maxChildSize: 1.0,
           expand: false,
           builder: (BuildContext context, ScrollController scrollController) {
-            return Container(
-              color: Colors.white,
-              child: ListView.builder(
-                controller: scrollController,
-                itemCount: 50,
-                itemBuilder: (BuildContext context, int index) {
-                  return ListTile(
-                    title: Text('Item $index'),
-                  );
-                },
-              ),
+            return ListView.builder(
+              controller: scrollController,
+              itemCount: 50,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text('Item $index'),
+                );
+              },
             );
           },
         );
