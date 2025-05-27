@@ -30,6 +30,7 @@ class _TextFieldScreenState extends State<TextFieldScreen> {
     final ThemeData themeData = Theme.of(context);
 
     return Scaffold(
+      resizeToAvoidBottomInset: true, // default true
       appBar: AppBar(
         title: const Text('Text Field'),
         centerTitle: true,

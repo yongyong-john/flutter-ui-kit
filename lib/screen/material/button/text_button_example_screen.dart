@@ -18,7 +18,7 @@ class _TextButtonExampleAppState extends State<TextButtonExampleApp> {
       darkTheme: ThemeData(brightness: Brightness.dark),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Text Button Example'),
+          title: const Text('Text Buttons Overview'),
           centerTitle: true,
           leading: IconButton(
             onPressed: () {
@@ -423,9 +423,7 @@ class _TextButtonExampleState extends State<TextButtonExample> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               controller: scrollController,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.min,
+              child: Column(
                 children: <Widget>[
                   Directionality(
                     textDirection: textDirection,
@@ -433,7 +431,6 @@ class _TextButtonExampleState extends State<TextButtonExample> {
                       children: columnOneButtons,
                     ),
                   ),
-                  horizontalSpacer,
                   Directionality(
                     textDirection: textDirection,
                     child: Column(children: columnTwoButtons),
@@ -466,7 +463,7 @@ class TextButtonExampleSwitches extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(10),
         child: IntrinsicWidth(
           child: Column(
             children: <Widget>[
@@ -480,7 +477,7 @@ class TextButtonExampleSwitches extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 10),
               Row(
                 children: <Widget>[
                   const Expanded(child: Text('RTL Text')),

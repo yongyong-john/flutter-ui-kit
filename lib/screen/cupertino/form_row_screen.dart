@@ -11,89 +11,86 @@ class _FormRowScreenState extends State<FormRowScreen> {
   bool airplaneMode = false;
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-      theme: const CupertinoThemeData(brightness: Brightness.light),
-      home: CupertinoPageScaffold(
-        navigationBar: CupertinoNavigationBar(
-          middle: const Text('Cupertino Form Row'),
-          leading: CupertinoButton(
-            padding: EdgeInsets.zero,
-            child: const Icon(CupertinoIcons.back),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        middle: const Text('Cupertino Form Row'),
+        leading: CupertinoButton(
+          padding: EdgeInsets.zero,
+          child: const Icon(CupertinoIcons.back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        child: SafeArea(
-          child: CupertinoFormSection(
-            header: const Text('Connectivity'),
-            children: <Widget>[
-              CupertinoFormRow(
-                prefix: const PrefixWidget(
-                  icon: CupertinoIcons.airplane,
-                  title: 'Airplane Mode',
-                  color: CupertinoColors.systemOrange,
-                ),
-                child: CupertinoSwitch(
-                  value: airplaneMode,
-                  onChanged: (bool value) {
-                    setState(() {
-                      airplaneMode = value;
-                    });
-                  },
-                ),
+      ),
+      child: SafeArea(
+        child: CupertinoFormSection(
+          header: const Text('Connectivity'),
+          children: <Widget>[
+            CupertinoFormRow(
+              prefix: const PrefixWidget(
+                icon: CupertinoIcons.airplane,
+                title: 'Airplane Mode',
+                color: CupertinoColors.systemOrange,
               ),
-              const CupertinoFormRow(
-                prefix: PrefixWidget(
-                  icon: CupertinoIcons.wifi,
-                  title: 'Wi-Fi',
-                  color: CupertinoColors.systemBlue,
-                ),
-                error: Text('Home network unavailable'),
+              child: CupertinoSwitch(
+                value: airplaneMode,
+                onChanged: (bool value) {
+                  setState(() {
+                    airplaneMode = value;
+                  });
+                },
+              ),
+            ),
+            const CupertinoFormRow(
+              prefix: PrefixWidget(
+                icon: CupertinoIcons.wifi,
+                title: 'Wi-Fi',
+                color: CupertinoColors.systemBlue,
+              ),
+              error: Text('Home network unavailable'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text('Not connected'),
+                  SizedBox(width: 5),
+                  Icon(CupertinoIcons.forward),
+                ],
+              ),
+            ),
+            const CupertinoFormRow(
+              prefix: PrefixWidget(
+                icon: CupertinoIcons.bluetooth,
+                title: 'Bluetooth',
+                color: CupertinoColors.activeBlue,
+              ),
+              helper: Padding(
+                padding: EdgeInsets.symmetric(vertical: 4.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text('Not connected'),
-                    SizedBox(width: 5),
-                    Icon(CupertinoIcons.forward),
+                    Text('Headphone'),
+                    Text('Connected'),
                   ],
                 ),
               ),
-              const CupertinoFormRow(
-                prefix: PrefixWidget(
-                  icon: CupertinoIcons.bluetooth,
-                  title: 'Bluetooth',
-                  color: CupertinoColors.activeBlue,
-                ),
-                helper: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text('Headphone'),
-                      Text('Connected'),
-                    ],
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Text('On'),
-                    SizedBox(width: 5),
-                    Icon(CupertinoIcons.forward),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text('On'),
+                  SizedBox(width: 5),
+                  Icon(CupertinoIcons.forward),
+                ],
               ),
-              const CupertinoFormRow(
-                prefix: PrefixWidget(
-                  icon: CupertinoIcons.bluetooth,
-                  title: 'Mobile Data',
-                  color: CupertinoColors.systemGreen,
-                ),
-                child: Icon(CupertinoIcons.forward),
+            ),
+            const CupertinoFormRow(
+              prefix: PrefixWidget(
+                icon: CupertinoIcons.bluetooth,
+                title: 'Mobile Data',
+                color: CupertinoColors.systemGreen,
               ),
-            ],
-          ),
+              child: Icon(CupertinoIcons.forward),
+            ),
+          ],
         ),
       ),
     );

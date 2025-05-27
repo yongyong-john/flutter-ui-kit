@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_kit/screen/about_screen.dart';
-import 'package:flutter_ui_kit/screen/added_package_ui_screen.dart';
-import 'package:flutter_ui_kit/screen/cupertino_ui_screen.dart';
-import 'package:flutter_ui_kit/screen/material_ui_screen.dart';
-import 'package:flutter_ui_kit/screen/settings_screen.dart';
+import 'package:flutter_ui_kit/screen/animation_screen.dart';
+import 'package:flutter_ui_kit/screen/cupertino_screen.dart';
+import 'package:flutter_ui_kit/screen/layout_screen.dart';
+import 'package:flutter_ui_kit/screen/material_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final VoidCallback toggleTheme;
+  final ThemeMode themeMode;
+
+  const HomeScreen({super.key, required this.toggleTheme, required this.themeMode});
 
   @override
   Widget build(BuildContext context) {
@@ -32,21 +34,36 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              leading: Icon(themeMode == ThemeMode.dark ? Icons.dark_mode : Icons.light_mode),
+              title: Text(themeMode == ThemeMode.dark ? 'Dark Mode' : 'Light Mode'),
               onTap: () {
-                // 설정 옵션 처리
-                Navigator.of(context).pop(); // 드로어 닫기
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
+                toggleTheme();
               },
             ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                // 정보 옵션 처리
                 Navigator.of(context).pop(); // 드로어 닫기
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
+                // 정보 옵션 처리
+                showAboutDialog(
+                    context: context,
+                    applicationName: 'About this app.',
+                    // NOTE: Update the version.
+                    applicationVersion: '1.0.0',
+                    children: [
+                      const SizedBox(height: 10.0),
+                      const Text(
+                        'Flutter UI Kit is a sample application that demonstrates various UI components. It is implemented only with Flutter SDK without any external libraries.',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 10.0),
+                      const Text(
+                        'Built with the following libraries:',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ]);
+                // Navigator.of(context).push(MaterialPageRoute(builder: (context) => const AboutScreen()));
               },
             ),
           ],
@@ -96,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const CupertinoUiScreen(),
+                                builder: (context) => CupertinoUiScreen(themeMode: themeMode),
                               ),
                             );
                           },
@@ -109,14 +126,34 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           title: Center(
                             child: Text(
-                              'Added Package UI',
+                              'Layout UI',
                               style: TextStyle(fontSize: cardHeight / 7),
                             ),
                           ),
                           onTap: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (context) => const AddedPackageUiScreen(),
+                                builder: (context) => const LayoutScreen(),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Card(
+                        child: ListTile(
+                          title: Center(
+                            child: Text(
+                              'Animation UI',
+                              style: TextStyle(fontSize: cardHeight / 7),
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const AnimationScreen(),
                               ),
                             );
                           },
