@@ -42,6 +42,42 @@ class HomeScreen extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.info),
+              title: const Text('Introduce'),
+              onTap: () {
+                Navigator.of(context).pop(); // 드로어 닫기
+                showAdaptiveDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: const Text('Introduce this app.'),
+                      content: const SingleChildScrollView(
+                        child: ListBody(
+                          children: [
+                            Text(
+                              "This app showcases a collection of sample UIs and features built with Flutter’s built-in libraries.",
+                            ),
+                            SizedBox(height: 12),
+                            Text("• Material UI demonstrates Android-style interfaces and sample features."),
+                            Text("• Cupertino UI presents iOS-style interfaces."),
+                            Text("• Layout UI includes a variety of layout examples."),
+                            Text(
+                                "• Animation UI uses Animated and Transition widgets to showcase different animation effects."),
+                          ],
+                        ),
+                      ),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pop(),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.question_mark),
               title: const Text('About'),
               onTap: () {
                 Navigator.of(context).pop(); // 드로어 닫기

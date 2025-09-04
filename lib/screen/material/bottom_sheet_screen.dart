@@ -8,7 +8,12 @@ class BottomSheetScreen extends StatefulWidget {
 }
 
 class _BottomSheetScreenState extends State<BottomSheetScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   String _selectedOption = 'Option 1';
+
+  PersistentBottomSheetController? _persistentController;
+  bool _isPersistentOpen = false;
 
   void _showModalBottomSheet(BuildContext context) {
     showModalBottomSheet(
@@ -22,34 +27,22 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               ListTile(
                 leading: const Icon(Icons.share),
                 title: const Text('Share'),
-                onTap: () {
-                  // Perform some action
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 leading: const Icon(Icons.link),
                 title: const Text('Get link'),
-                onTap: () {
-                  // Perform some action
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 leading: const Icon(Icons.edit),
                 title: const Text('Edit name'),
-                onTap: () {
-                  // Perform some action
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 leading: const Icon(Icons.delete),
                 title: const Text('Delete collection'),
-                onTap: () {
-                  // Perform some action
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
             ],
           ),
@@ -58,8 +51,8 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
     );
   }
 
-  void _showPersistentBottomSheet(BuildContext context) {
-    Scaffold.of(context).showBottomSheet(
+  void _openPersistentBottomSheet() {
+    _persistentController = _scaffoldKey.currentState!.showBottomSheet(
       (BuildContext context) {
         return Container(
           height: 200,
@@ -73,22 +66,36 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               ListTile(
                 leading: const Icon(Icons.camera_alt),
                 title: const Text('Camera'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
                 title: const Text('Gallery'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
+                onTap: () => Navigator.pop(context),
               ),
             ],
           ),
         );
       },
     );
+
+    setState(() => _isPersistentOpen = true);
+
+    _persistentController!.closed.whenComplete(() {
+      if (!mounted) return;
+      setState(() {
+        _isPersistentOpen = false;
+        _persistentController = null;
+      });
+    });
+  }
+
+  void _togglePersistentBottomSheet() {
+    if (_isPersistentOpen) {
+      _persistentController?.close();
+    } else {
+      _openPersistentBottomSheet();
+    }
   }
 
   void _showDraggableBottomSheet(BuildContext context) {
@@ -120,6 +127,7 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text('Bottom Sheet'),
         centerTitle: true,
@@ -138,41 +146,38 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
               'Choose an option:',
               style: TextStyle(fontSize: 18),
             ),
-            ListTile(
+            RadioListTile<String>(
               title: const Text('Set modal bottom sheet'),
-              leading: Radio<String>(
-                value: 'Option 1',
-                groupValue: _selectedOption,
-                onChanged: (String? value) {
-                  setState(() {
-                    _selectedOption = value!;
-                  });
-                },
-              ),
+              value: 'Option 1',
+              groupValue: _selectedOption,
+              onChanged: (String? value) {
+                if (value == null) return;
+                setState(() => _selectedOption = value);
+                if (_isPersistentOpen && value != 'Option 2') {
+                  _persistentController?.close();
+                }
+              },
             ),
-            ListTile(
+            RadioListTile<String>(
               title: const Text('Set persistent bottom sheet'),
-              leading: Radio<String>(
-                value: 'Option 2',
-                groupValue: _selectedOption,
-                onChanged: (String? value) {
-                  setState(() {
-                    _selectedOption = value!;
-                  });
-                },
-              ),
+              value: 'Option 2',
+              groupValue: _selectedOption,
+              onChanged: (String? value) {
+                if (value == null) return;
+                setState(() => _selectedOption = value);
+              },
             ),
-            ListTile(
+            RadioListTile<String>(
               title: const Text('Set scrollable bottom sheet'),
-              leading: Radio<String>(
-                value: 'Option 3',
-                groupValue: _selectedOption,
-                onChanged: (String? value) {
-                  setState(() {
-                    _selectedOption = value!;
-                  });
-                },
-              ),
+              value: 'Option 3',
+              groupValue: _selectedOption,
+              onChanged: (String? value) {
+                if (value == null) return;
+                setState(() => _selectedOption = value);
+                if (_isPersistentOpen && value != 'Option 2') {
+                  _persistentController?.close();
+                }
+              },
             ),
           ],
         ),
@@ -181,16 +186,20 @@ class _BottomSheetScreenState extends State<BottomSheetScreen> {
         builder: (BuildContext context) {
           return FloatingActionButton(
             onPressed: () {
-              if (_selectedOption == 'Option 1') {
+              if (_selectedOption == 'Option 2') {
+                _togglePersistentBottomSheet();
+              } else if (_selectedOption == 'Option 1') {
+                if (_isPersistentOpen) _persistentController?.close();
                 _showModalBottomSheet(context);
-              } else if (_selectedOption == 'Option 2') {
-                _showPersistentBottomSheet(context);
               } else {
+                if (_isPersistentOpen) _persistentController?.close();
                 _showDraggableBottomSheet(context);
               }
             },
-            child: const Icon(
-              Icons.keyboard_arrow_up,
+            child: Icon(
+              (_selectedOption == 'Option 2' && _isPersistentOpen)
+                  ? Icons.keyboard_arrow_down
+                  : Icons.keyboard_arrow_up,
               size: 45,
             ),
           );
